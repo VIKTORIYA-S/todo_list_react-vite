@@ -1,11 +1,29 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import  ReactDom  from 'react-dom/client'
 import './assets/scss/normalize.scss'
 import './assets/scss/style.scss'
 import { ToDoListPage } from './pages/ToDoListPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-createRoot(document.getElementById('root')!).render(
+
+const root = ReactDom.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
+root.render(
   <StrictMode>
-    <ToDoListPage />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ToDoListPage />}></Route>
+      </Routes>
+    </BrowserRouter>
   </StrictMode>,
 )
+
+// createRoot(document.getElementById('root')!).render(
+//   <StrictMode>
+//     <BrowserRouter>
+//       <ToDoListPage />
+//     </BrowserRouter>
+//   </StrictMode>,
+// )
